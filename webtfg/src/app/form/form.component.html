@@ -1,0 +1,140 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h2 *ngIf="objectElement == 'event'">{{title}}</h2>
+    <form (ngSubmit)="onSubmit()" #elementForm="ngForm">
+        <div class="form-group" *ngFor="let number of numbers">
+          <!-- [readonly]="arrayAttributes[number] == uniqueAttr" -->
+          <label for="{{arrayAttributes[number]}}">{{arrayTitles[number]}}  <img *ngIf="arrayAttributes[number] == 'terminal_serial_number' && objectElement == 'terminal'" (click)="openDialog();" src="assets/images/question_32.png"></label>
+            <input [(ngModel)]="object[arrayAttributes[number]]" [name]="arrayAttributes[number]" [type]="(arrayAttributes[number] == 'terminal_type' || arrayAttributes[number] == 'resource_price' || arrayAttributes[number] == 'terminal_serial_number' || arrayAttributes[number] == 'tag_code') ? 'number' : 'text'" class="form-control" [id]="arrayAttributes[number]" 
+            [required]="arrayAttributes[number] != 'tag_description'" #elem="ngModel" [maxlength]="(arrayAttributes[number] == 'terminal_serial_number') ? '9' : ''">
+            <div [hidden]="elem.valid || elem.hasError('maxlength') || elem.pristine || elem.hasError('alreadyExist')"
+              class="alert alert-danger">
+              {{arrayErrorMessages[number]}}
+            </div>
+            <div *ngIf="elem.hasError('maxlength')"
+              class="alert alert-danger">
+              El número de serie del terminal no debe superar los 9 caracteres
+            </div>
+            
+            <div *ngIf="elem.hasError('alreadyExist')"
+            class="alert alert-danger">Ya existe</div>
+        </div>
+
+        <div *ngIf="objectElement == 'terminal'">
+            <div *ngIf="idUrl>0">
+              <label>Contraseña:</label>
+              <div class="form-group">
+                <div (click)="openDialogPassword();" class="btn btn-primary image_button" id="change_pass">
+                  <p class="texto_button center">Cambiar contraseña</p>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        <div *ngIf="objectElement == 'terminal' || objectElement == 'register'">
+            <div class="form-group" *ngIf="!(idUrl>0)">
+              <label>Contraseña:</label>
+              <div class="input-group">
+                <input class="form-control" [(ngModel)]="object.terminal_password" [type]="hide ? 'password' : 'text'"
+                name="terminal_password" class="form-control pass" id="terminal_password" required 
+                #terminal_password="ngModel" minlength="6">
+                <span *ngIf="hide==true" class="input-group-addon"><i (click)="change()" class="fa fa-eye fa-fw"></i></span>
+                <span *ngIf="hide==false" class="input-group-addon"><i (click)="change()" class="fa fa-eye-slash fa-fw"></i></span>
+              </div>
+              <div *ngIf="!(idUrl>0)" [hidden]="object['terminal_password'] == undefined || object['terminal_password'].length>=6" class="alert alert-danger">
+                  La contraseña debe tener más de 6 caracteres
+              </div>
+            </div>
+        
+            <div class="form-group" *ngIf="!(idUrl>0)">
+              <label for="password_confirmation">Vuelva a introducir su contraseña:</label>
+              <div class="input-group">
+                <input class="form-control" [(ngModel)]="pwd_confirmation" [type]="hideConf ? 'password' : 'text'"
+                name="password_confirmation" class="form-control pass" id="password_confirmation" required 
+                #password_confirmation="ngModel" minlength="6">
+                <span *ngIf="hideConf==true" class="input-group-addon"><i (click)="changeConf()" class="fa fa-eye fa-fw"></i></span>
+                <span *ngIf="hideConf==false" class="input-group-addon"><i (click)="changeConf()" class="fa fa-eye-slash fa-fw"></i></span>
+              </div>
+              <div *ngIf="!(idUrl>0)" [hidden]="(pwd_confirmation == undefined || pwd_confirmation == object['terminal_password'] || object['terminal_password'] == undefined)" class="alert alert-danger">
+                Las contraseñas no coinciden 
+              </div>
+            </div>
+        </div>
+
+        <div *ngIf="objectElement == 'tag'" class="form-group">
+            <label>Usuario asociado:</label>
+            <div *ngIf="object.user_id == undefined" (click)="openDialogAddUser();" class="image_button_user">
+              <p class="texto_button center">Asociar usuario</p>
+            </div>
+            <div *ngIf="object.user_id != undefined">
+              {{object.user_description}}
+              <img (click)="openDialogAddUser();" src="assets/images/user_edit_32.png">
+              <img (click)="disassociateUser();" src="assets/images/user_delete_32.png">
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf = "objectElement == 'product'">
+            <label for="imageUpload">Imagen del producto</label>
+            <image-upload id="imageUpload" partName={{object.resource_title}}
+              [extensions]="['jpeg','png']"
+              [max]="1"
+              class="customClass"
+              (uploadFinished)="onUploadFinished($event)"
+              (uploadStateChanged)="onUploadStateChanged($event)"
+              buttonCaption="Seleccione imagen"
+              [uploadedFiles]="uploadedFiles"
+              dropBoxMessage="O arrastre aquí la imagen"
+              clearButtonCaption="Limpiar selección">
+            </image-upload>
+          </div>
+
+        <div class="form-group" *ngIf = "objectElement == 'event'">
+          <label for="mydaterange">Fechas</label>
+          <div>
+            <my-date-range-picker (dateRangeChanged)="onDateRangeChanged($event)" name="mydaterange"
+            id="mydaterange" [options]="myDateRangePickerOptions"
+              [(ngModel)]="model" #mydaterange="ngModel">
+            </my-date-range-picker>
+            <div [hidden]="mydaterange.valid || mydaterange.pristine"
+                  class="alert alert-danger">
+              Fechas obligatorias
+            </div>
+          </div>
+        </div>
+        <div class="btn-form">
+          <button type="submit" class="btn btn-success" [disabled]="!elementForm.form.valid || elementForm.form.pristine || (((objectElement == 'register' || objectElement == 'terminal') && (object['terminal_password'] == undefined || pwd_confirmation == undefined || object['terminal_password']!= pwd_confirmation)) && idUrl==0)">Guardar</button>
+          <button type="button" class="btn button" [routerLink]="routerLink">Cancelar</button>
+        </div>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2 *ngIf="objectElement == 'event'" class="form-submitted">{{ object['event_description']}}</h2>
+    <h2 [hidden]="objectElement == 'event'" class="form-submitted">{{registeredTitle}}</h2>
+    <div class="row row-padding" *ngFor="let number of numbers">
+      <div class="col-xs-4">{{arrayTitles[number]}}</div>
+      <div class="col-xs-6 pull-left">{{ object[arrayAttributes[number]] }}</div>
+    </div>
+    <div class="row row-padding" *ngIf = "objectElement == 'event'">
+      <div class="col-xs-4">Fechas</div>
+      <div class="col-xs-6 pull-left">{{rangeDate}}</div>
+    </div>
+    <div class="row row-padding" *ngIf = "objectElement == 'product'">
+        <div class="col-xs-4">Imagen</div>
+        <div class="col-xs-6 pull-left"><img *ngIf="object['image']" [src]="object['image'] | safeHtml" height="25%" width="25%"></div>
+    </div>
+    <div class="row row-padding" *ngIf = "objectElement == 'tag'">
+        <div class="col-xs-4">Usuario asociado</div>
+        <div class="col-xs-6 pull-left">{{object['user_description']}}</div>
+      </div>
+    <div class="form-submitted">
+      <button *ngIf="objectElement != 'register'" class="btn btn-primary" (click)="edit()">Editar</button>
+      <button class="btn btn-primary" [routerLink]="routerLink">Aceptar</button>
+    </div>
+   
+    <div class="buttons-elem" *ngIf = "objectElement == 'event'">
+      <button class="btn btn-primary image_button_event" id="terminal" routerLink="/terminals/{{object.event_id}}">Terminales</button> 
+      <button class="btn btn-primary image_button_event" id="tag" routerLink="/tags/{{object.event_id}}">Pulseras</button>
+    </div>
+  </div>
+</div>

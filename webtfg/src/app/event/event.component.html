@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="background">
+        <app-header [navLinks]="navLinks"></app-header>
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <div class="dashboard">
+            <div class="container">
+                <div>
+                    <h1>Mis eventos</h1>
+                </div>
+                <div *ngIf="arr_events">
+                    <ul class="events">
+                        <li *ngFor="let event of arr_events" routerLink="/event-form/{{event.event_id}}">
+                            {{event.event_description}}
+                            <div class="image">
+                                <img (click)="clickEdit($event, event.event_id)" src="assets/images/edit_16.png">
+                                <img (click)="openDialog($event, event)" src="assets/images/delete_16.png">
+                            </div>
+                                
+                    </ul>
+                </div>
+                <button class="btn btn-primary" routerLink="/event-form/0" [queryParams]="{'action': 'edit'}">Añadir evento</button>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
+    

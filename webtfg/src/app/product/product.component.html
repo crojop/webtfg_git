@@ -1,0 +1,13 @@
+<div class="background">
+  <app-header [navLinks]="navLinks"></app-header>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <div class="container">
+    <app-title [title]="title" src="assets/images/beer.png"></app-title>
+    <app-table *ngIf="myDataSource"
+      objectElement = "product"
+      [queryParams]= "queryParams"
+      (onDeleted)= "onDeleted($event)"
+      [myDataSource]= "myDataSource">
+    </app-table>
+  </div>
+</div>

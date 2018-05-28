@@ -1,0 +1,35 @@
+.button{
+  margin-top: 20px;
+}
+
+::ng-deep .customClass {
+  background-color: rgb(236, 236, 236) !important;
+  border-radius: 5px;
+  width: 500px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px !important;
+  font-weight: 300;
+}
+
+::ng-deep .customClass .img-ul-upload {
+  background-color: #900C3F !important;
+  text-transform: capitalize !important;
+  font-size: 18px !important;
+  border-radius: 5px;
+}
+
+::ng-deep .customClass .img-ul-clear {
+  background-color: black !important;
+  text-transform: capitalize !important;
+  font-size: 18px !important;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+::ng-deep .customClass .img-ul-drag-box-msg {
+  color: black !important;
+}
+
+::ng-deep .customClass .img-ul-container {
+  background-color: rgb(236, 236, 236) !important;
+}

@@ -1,0 +1,12 @@
+<div class="fonts">
+  <p class="fonts center" mat-dialog-title><img class="img" src="assets/images/warning.png"><strong>  {{title}}</strong></p>
+  <mat-dialog-content class="center">
+    Esta acción no se puede deshacer. 
+    <br><strong>¿Está seguro/a?</strong>
+  </mat-dialog-content>
+  <mat-dialog-actions class="button-actions display-block center">
+    <button class="btn dialog-buttons" mat-button [mat-dialog-close]="true">Sí</button>
+    <button class="btn dialog-buttons" mat-button mat-dialog-close>No</button> 
+  </mat-dialog-actions>    
+</div>
+

@@ -1,0 +1,59 @@
+.dashboard {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .events {
+    text-align: center;
+    list-style-type:none;
+    color: black;
+    padding: 40px;
+    margin: 0 auto;
+    width:600px;
+  }
+  .events li {
+    position: relative;
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 3em;
+    border-radius: 4px;
+  }
+  
+  .events li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  
+  .image{
+    float: right;
+  }
+  
+  .image_button{
+    color: white;
+    margin: 20px;
+    margin-left: 0;
+    padding: 40px;
+    padding-left: 0;
+    font-size: 22px;
+    text-align: center !important;
+    background-repeat:no-repeat;
+    background-size: 20%;
+    height:112px;
+    width:40%;
+    background-position: left;
+    border-radius: 12px;
+    box-shadow: gainsboro 2px 2px 4px;
+  }
+  /*background-color: #7E2363;*/
+  .image_button:hover{
+    opacity:0.7; 
+  }
+  
+  #user{
+    background-image:url(https://image.flaticon.com/icons/svg/145/145849.svg);
+    background-position: 12px;
+  }

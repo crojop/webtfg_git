@@ -1,0 +1,48 @@
+.btn-add-user{
+    margin: 16px;
+    margin-left: 0;
+    padding: 12px;
+    margin-top: 0;
+    padding-left: 0;
+    text-align: right;
+    background-repeat:no-repeat;
+    background-size: 22%;
+    background-position-x: 8px;
+    background-position-y: center;
+    width: 156px;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: gainsboro 2px 2px 4px;
+}
+
+.btn-add-user:hover{
+    opacity:0.6; 
+}
+
+#icon{
+    background-image:url(https://image.flaticon.com/icons/svg/138/138659.svg);
+}
+
+.image_button{
+    background-color: #DFDDDD;
+    background-image: url('../../assets/images/user_32.png');
+    background-repeat:no-repeat;
+    background-position-x: center;
+    background-position-y: 8px;
+    border-radius: 8px;
+    position: relative;
+    width: 118px;
+    height: 64px !important;
+    box-shadow: grey 0.5px 0.5px;
+}
+.image_button:hover{
+    opacity:0.7; 
+}
+
+.texto_button {
+    position: absolute;
+    padding-bottom:6px;
+    font-size: 14px;
+    bottom: 0px;
+    left:6%;
+}

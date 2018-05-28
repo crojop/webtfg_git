@@ -1,0 +1,92 @@
+.image_button{
+    background-color: #DFDDDD;
+    background-image: url('../../assets/images/pin-code.png');
+    background-repeat:no-repeat;
+    background-position-x: center;
+    background-position-y: 2px;
+    border-radius: 8px;
+    position: relative;
+    width: 172px;
+    height: 62px !important;
+    box-shadow: 0px 0px 24px grey;
+}
+.image_button:hover{
+    opacity:0.7; 
+}
+
+.image_button_user{
+    background-color: black;
+    color: white;
+    background-image: url('../../assets/images/user_32.png');
+    background-repeat:no-repeat;
+    background-position-x: center;
+    background-position-y: 8px;
+    border-radius: 8px;
+    position: relative;
+    width: 146px;
+    height: 64px !important;
+    box-shadow: 0px 0px 16px grey;
+}
+.image_button_user:hover{
+    opacity:0.7; 
+}
+
+.texto_button {
+    position: absolute;
+    padding-bottom:6px;
+    font-size: 14px;
+    bottom: 0px;
+    left:6%;
+}
+
+.pass{
+    display:inline;
+    position: relative;
+}
+
+.buttons-elem {
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
+    opacity: 0.9;
+}
+
+#product{
+    background-image:url(https://image.flaticon.com/icons/svg/247/247532.svg);
+}
+
+#terminal{
+    background-image:url(https://image.flaticon.com/icons/svg/713/713647.svg);
+}
+
+#tag{
+    background-image:url(https://image.flaticon.com/icons/svg/145/145692.svg);
+}
+
+.image_button_event{
+    color: white;
+    margin: 20px;
+    margin-left: 0;
+    padding: 50px;
+    padding-left: 0px;
+    font-size: 22px;
+    text-align: center !important;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    width:50%;
+    background-position: left;
+    border-radius: 12px;
+    box-shadow: 0px 0px 16px grey;
+}
+/*background-color: #7E2363;*/
+.image_button_event:hover{
+    opacity:0.7; 
+}
+
+.form-submitted {
+    padding: 24px 0px;
+}
+
+.row-padding {
+    padding: 6px 0px;
+}

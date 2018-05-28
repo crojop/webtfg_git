@@ -1,0 +1,62 @@
+<div>
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+    </mat-form-field>
+  </div>
+  <mat-table #table [dataSource]="myDataSource" matSort>
+    <ng-container *ngFor="let number of numbers" matColumnDef='{{displayedColumns[number]}}'>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{arrayTitles[number]}}</mat-header-cell>
+      <mat-cell *matCellDef="let object" [ngClass]="{'color-white':  objectElement == 'associate_user' && user_selected.user_id==object.user_id }">{{object[displayedColumns[number]]}}</mat-cell>
+    </ng-container>
+    <ng-container *ngIf="displayedColumns.includes('products')" matColumnDef="products">
+      <mat-header-cell *matHeaderCellDef> Productos asociados
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button routerLink="/products/{{row.terminal_id}}" class="btn btn-primary image_button" id="go_products">{{row.terminal_description}}</button>  
+      </mat-cell>
+    </ng-container>
+    <ng-container *ngIf="displayedColumns.includes('user_description_tag')" matColumnDef="user_description_tag">
+      <mat-header-cell *matHeaderCellDef>Usuario asociado</mat-header-cell>
+      <mat-cell *matCellDef="let tag">
+        <img *ngIf="tag.user_id==undefined" src="assets/images/user_add_24.png" (click)="openDialogAddUser(tag)">
+        <div *ngIf="tag.user_id!=undefined"> 
+            {{tag.user_description}}
+            <img (click)="openDialogAddUser(tag);" class="margin_left_10" src="assets/images/user_edit_24.png">
+            <img (click)="disassociateUser(tag);" src="assets/images/user_delete_24.png">
+        </div>
+      </mat-cell>
+    </ng-container>
+    <ng-container *ngIf="displayedColumns.includes('image')" matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef class="center"> Imagen </mat-header-cell>
+      <mat-cell *matCellDef="let product">
+          <img *ngIf="product.image" [src]="product.image | safeHtml" height="90%" width="90%">
+      </mat-cell>
+    </ng-container>
+    <ng-container *ngIf="displayedColumns.includes('select')" matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef class="center"></mat-header-cell>
+        <mat-cell class="center" *matCellDef="let user" >
+            <img *ngIf="user_selected!=user" src="assets/images/user_32.png">
+            <img *ngIf="user_selected==user" src="assets/images/user_delete_32.png">
+        </mat-cell>
+    </ng-container>
+    <ng-container *ngIf="objectElement != associate_user" matColumnDef="edit_delete">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row" class="center">
+        <img (click)="edit(row);" src="assets/images/edit_16.png">    
+        <img (click)="openDialog(row);" src="assets/images/delete_16.png">
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedRow(row);" [ngClass]="{'row-background': objectElement == 'associate_user' && row.user_id==user_selected.user_id }"></mat-row>
+  </mat-table>
+  <div>
+    <mat-paginator #paginator [length]="myDataSource?.filteredData.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10]">
+    </mat-paginator>
+  </div>
+  <div *ngIf="objectElement != 'associate_user'">
+    <button class="btn btn-primary add" (click)="addObject()">Añadir {{addTitle}}</button>
+  </div>
+</div>

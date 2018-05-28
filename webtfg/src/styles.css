@@ -1,0 +1,205 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*https://www.google.es/search?tbs=isz:l,ic:specific,isc:gray&tbm=isch&q=palm+background&backchip=online_chips:palm+leaf&chips=q:palm+background&sa=X&ved=0ahUKEwjDvOO-qZ7aAhVEKMAKHXUFBUsQ3VYIJCgA&biw=1366&bih=613&dpr=1#imgrc=MxPpxuzw2GLvRM:*/
+/*https://rockandball.com.ar/wp-content/uploads/2018/01/COA-1.jpg*/
+
+.background {
+    background-image: url(https://rockandball.com.ar/wp-content/uploads/2018/01/COA-1.jpg);
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.size-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.cover {
+  min-height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+mat-table {
+  border-radius: 10px;
+  padding: 10px;
+  opacity: 0.9;
+}
+
+mat-paginator {
+  border-radius: 10px;
+  opacity: 0.8;
+  padding: 4px;
+}
+
+.add {
+  margin: 20px 0px;
+}
+/*font-family: 'Quicksand', sans-serif;*/
+.container {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.fonts{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.dialog-buttons{
+  margin-top: 16px;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.dialog-buttons:hover{
+  opacity: 0.6;
+}
+
+.arrow_image{
+  margin: auto;
+  padding-top: 4px;
+  padding-left: 20px;
+}
+
+.center{
+  margin:auto;
+  text-align: center;
+}
+
+.not-superior-padding{
+padding-top: 0px;
+}
+
+.event_title_text{
+  font-size: 24px;
+  color: #556080;
+}
+
+.event_title_text:hover{
+  opacity: 0.6;
+}
+
+.display-block{
+  display: block !important;
+}
+
+.btn-primary {
+  background-color: black !important;
+  border: none !important;
+}
+
+mat-toolbar {
+  font-family: 'Roboto Mono', monospace !important;
+  background-color: black !important;
+  color: white !important;
+  box-shadow: 0px 0px 16px grey;
+}
+
+mat-tab-group, mat-tab-nav-bar {
+  font-family: 'Roboto Mono', monospace !important;
+  color: white !important;
+  background-color: black !important;
+  padding: 0px 40px !important;
+  border-color: white !important;
+}
+
+.mat-tab-body-wrapper, .mat-tab-link {
+  font-family: 'Roboto Mono', monospace !important;
+  color: white !important;
+  background-color: black !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+  padding: 0px 12px !important;
+}
+.mat-tab-label, {
+  font-family: 'Roboto Mono', monospace !important;
+  opacity: 1 !important;
+  color: white !important;
+  background-color: black !important;
+  font-size: 12px !important;
+  border-color: white !important;
+}
+
+/* ink bar style 
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+  background: rgba(149, 165, 166,0.3);
+  color: white !important;
+} */
+
+.mat-ink-bar {
+  background: white !important;
+}
+
+
+.fill-remaining-space{
+  flex: auto;
+}
+
+.home-icon {
+  margin: 0px 12px 4px 20px;
+  vertical-align: middle;
+}
+
+.home{
+  font-size: 14px;
+  display: block;
+  margin: auto;
+  margin-right: 10px;
+  text-align: center;
+  flex: 0;
+  border: 2px solid white;
+}
+
+.home-text {
+  margin-right: 40px;
+}
+
+.home:hover {
+  opacity: 0.6;
+}
+
+.home-dashboard {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.home-dashboard:hover {
+  opacity: 1;
+}
+
+form {
+  padding-top: 24px !important;
+}
+
+mat-card {
+  border-radius: 20px !important;
+  margin-top: 24px !important;
+}
+
+.display-block{
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.center-vertical {
+  vertical-align: middle;
+}
+
+.btn-form {
+  padding: 12px 0px;
+}

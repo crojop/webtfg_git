@@ -1,0 +1,46 @@
+.image_button{
+    font-size: 12px;
+    color: white;
+    text-align: right;
+    background-repeat:no-repeat;
+    background-size: 40%;
+    background-origin: content-box;
+    height: 90px;
+    width: 100%;
+    background-position: left;
+    border-radius: 20px;
+    box-shadow: gainsboro 2px 2px 4px;
+  }
+  
+  .image_button:hover{
+    opacity:0.6; 
+  }
+
+  #go_products{
+    background-image:url(https://image.flaticon.com/icons/svg/544/544564.svg);
+  }
+
+  .margin_left_30 {
+    margin-left: 30px;
+}
+
+.margin_left_10{
+    margin-left: 10px;
+}
+
+#tag{
+    margin-right: 10px;
+}
+
+.table-dialog {
+  color: black;
+  width: 600px;
+}
+
+.row-background{
+  background: #5CB85C;
+}
+
+.color-white {
+  color: white !important;
+}

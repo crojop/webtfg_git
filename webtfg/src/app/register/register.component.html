@@ -1,0 +1,13 @@
+<div class="background register">
+    <div class="container">
+        <h2 [hidden]="submitted" class="padd">Registrarse</h2>
+        <app-form 
+        (onSubmitChild)= "onSubmitChild($event)"
+        [object]="object"
+        objectElement="register"
+        [idUrl]="id_url"
+        [subm]="submitted"
+        [regAlreadyExist]="regAlreadyExist">
+        </app-form>
+    </div>
+</div>

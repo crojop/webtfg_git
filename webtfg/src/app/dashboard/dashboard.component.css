@@ -1,0 +1,69 @@
+.dashboard {
+  display: flex;
+  margin: auto;
+  height: 80%;
+  width: 80%;
+  text-align: center;
+  align-items: center;
+}
+
+.image{
+  float: right;
+}
+
+.image_button{
+  color: white;
+  margin: 20px;
+  margin-left: 0;
+  padding: 40px;
+  padding-left: 0;
+  font-size: 22px;
+  text-align: center !important;
+  background-repeat:no-repeat;
+  background-size: 20%;
+  height:112px;
+  width:40%;
+  background-position: left;
+  border-radius: 12px;
+  box-shadow: gainsboro 2px 2px 4px;
+}
+/*background-color: #7E2363;*/
+.image_button:hover{
+  opacity:0.7; 
+}
+
+.card{
+  max-width: 40%;
+}
+
+.example-header-image {
+  background-image: url('../../assets/images/users.jpg');
+  background-size: cover;
+}
+
+.image-actions{
+  background-image: url('../../assets/images/preference.png');
+  background-repeat:no-repeat;
+  
+}
+mat-button {
+  display: block;
+}
+mat-icon {
+  display: inline-block;
+}
+
+.conf-button {
+  height: 34px;
+}
+
+.font-menu{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  font-weight: 200;
+  margin-left: -4px;
+}
+
+.icon-menu {
+  transform: scale(0.9);
+}

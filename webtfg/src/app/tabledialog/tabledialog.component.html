@@ -1,0 +1,16 @@
+<div class="table-dialog fonts">
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <p mat-dialog-title class="fonts center">Asociar usuario</p>
+  <mat-dialog-content>
+      <app-table *ngIf="noTable"
+        (onSelectedRow)= "onSelectedRow($event)"
+        [objectElement] = "objectElement"
+        [userSelected]="user_selected"
+        [myDataSource]="myDataSource">
+      </app-table>
+  </mat-dialog-content>
+  <mat-dialog-actions class="button-actions center">
+    <button class="btn btn-success dialog-buttons" [disabled]="user_selected == undefined" mat-button [mat-dialog-close]="{'user': user_selected}">Aceptar</button>
+    <button class="btn dialog-buttons" mat-button mat-dialog-close>Cancelar</button> 
+  </mat-dialog-actions>
+</div>

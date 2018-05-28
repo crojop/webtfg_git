@@ -1,0 +1,16 @@
+.padding{
+    padding-left: 20px;
+}
+
+#product {
+    margin-right: 6px;
+}
+
+.image {
+    padding:12px;
+}
+
+mat-header-cell {
+    display:flex;
+    justify-content: center;
+}

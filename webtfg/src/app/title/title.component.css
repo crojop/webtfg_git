@@ -1,0 +1,16 @@
+.element_title_div{
+    padding: 24px;
+    padding-bottom: 0px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+}
+  
+.image_div{
+    display: inline-block;
+}
+
+.element_title_text{
+    display: inline-block;
+}
