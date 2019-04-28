@@ -5,4 +5,4 @@ In order to run this project and avoid <strong> Cross-Origin Read Blocking (CORB
 
 1. Open cmd
 2. Go to the Chrome path in your system: (In MY system) C:\Program Files (x86)\Google\Chrome\Application
-2. Add this line: chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+3. Add this line: chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
